@@ -1,11 +1,11 @@
 ﻿using System;
-using DewCore.DewDatabase.MySQL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Generic;
+using DewCore.Database.MySQL;
 
 namespace DewCore.AspNetCore.Middlewares
 {
@@ -23,10 +23,11 @@ namespace DewCore.AspNetCore.Middlewares
         /// <param name="next">Next middleware</param>
         /// <param name="cs">Connection string</param>
         /// <param name="tp">Table prefix</param>
-        public DatabaseMiddleware(RequestDelegate next, MySQLConnectionString cs, string tp)
+        public DatabaseMiddleware(RequestDelegate next, MySQLConnectionString cs, string tp = null)
         {
             _next = next;
             _cs = cs;
+            _tp = tp == null ? string.Empty : tp;
         }
         /// <summary>
         /// Invoke method

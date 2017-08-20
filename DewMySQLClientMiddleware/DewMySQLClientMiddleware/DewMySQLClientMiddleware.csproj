@@ -13,9 +13,9 @@
     <PackageTags>MySQL, Dew, Aspnetcore, dotnetcore</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageReleaseNotes>Updated to .net core 2.0 (.net standard 2.0)</PackageReleaseNotes>
-    <AssemblyVersion>2.0.1.0</AssemblyVersion>
-    <FileVersion>2.0.1.0</FileVersion>
-    <Version>2.0.1</Version>
+    <AssemblyVersion>2.0.4.0</AssemblyVersion>
+    <FileVersion>2.0.4.0</FileVersion>
+    <Version>2.0.4</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -27,7 +27,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DewMySQLClient" Version="2.2.2" />
+    <PackageReference Include="DewMySQLClient" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.0.0" />
   </ItemGroup>
 
