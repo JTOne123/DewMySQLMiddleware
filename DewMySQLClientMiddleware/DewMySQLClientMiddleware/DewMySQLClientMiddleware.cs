@@ -40,7 +40,7 @@ namespace DewCore.AspNetCore.Middlewares
             if (env.IsDevelopment())
             {
                 MySQLClient.DebugOn = true;
-                MySQLClient.SetDebugger(new DewLogger.DewConsole());
+                MySQLClient.SetDebugger(new Logger.DewConsole());
             }
             context.Items.Add("DewDatabaseConnectionString", _cs);
             context.Items.Add("DewDatabaseTablePrefix", _tp);
