@@ -22,7 +22,6 @@ namespace DewCore.AspNetCore.Middlewares
         /// </summary>
         /// <param name="next">Next middleware</param>
         /// <param name="cs">Connection string</param>
-        /// <param name="tp">Table prefix</param>
         public DatabaseMiddleware(RequestDelegate next, MySQLConnectionString cs)
         {
             _next = next;
