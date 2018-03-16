@@ -22,12 +22,23 @@ namespace DewCore.AspNetCore.Middlewares
         /// </summary>
         /// <param name="next">Next middleware</param>
         /// <param name="cs">Connection string</param>
-        /// <param name="tp">Table prefix</param>
-        public DatabaseMiddleware(RequestDelegate next, MySQLConnectionString cs, string tp = null)
+        public DatabaseMiddleware(RequestDelegate next, MySQLConnectionString cs)
         {
             _next = next;
             _cs = cs;
-            _tp = tp == null ? string.Empty : tp;
+            _tp = string.Empty;
+        }
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="next">Next middleware</param>
+        /// <param name="cs">Connection string</param>
+        /// <param name="tp">Table prefix</param>
+        public DatabaseMiddleware(RequestDelegate next, MySQLConnectionString cs, string tp)
+        {
+            _next = next;
+            _cs = cs;
+            _tp = tp;
         }
         /// <summary>
         /// Invoke method
@@ -35,16 +46,16 @@ namespace DewCore.AspNetCore.Middlewares
         /// <param name="context"></param>
         /// <param name="env"></param>
         /// <returns></returns>
-        public Task Invoke(HttpContext context, IHostingEnvironment env)
+        public async Task Invoke(HttpContext context, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 MySQLClient.DebugOn = true;
-                MySQLClient.SetDebugger(new DewLogger.DewConsole());
+                MySQLClient.SetDebugger(new Logger.DewConsole());
             }
             context.Items.Add("DewDatabaseConnectionString", _cs);
             context.Items.Add("DewDatabaseTablePrefix", _tp);
-            return _next(context);
+            await _next(context);
         }
     }
     /// <summary>
