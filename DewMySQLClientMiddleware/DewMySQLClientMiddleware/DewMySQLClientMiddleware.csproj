@@ -12,10 +12,10 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>MySQL, Dew, Aspnetcore, dotnetcore</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageReleaseNotes>Fixed constructor tp bug</PackageReleaseNotes>
-    <AssemblyVersion>2.0.9.0</AssemblyVersion>
-    <FileVersion>2.0.9.0</FileVersion>
-    <Version>2.0.12</Version>
+    <PackageReleaseNotes>Package update, added query builder</PackageReleaseNotes>
+    <AssemblyVersion>2.1.0.0</AssemblyVersion>
+    <FileVersion>2.1.0.0</FileVersion>
+    <Version>2.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -27,8 +27,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DewMySQLClient" Version="2.5.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.0.2" />
+    <PackageReference Include="DewMySQLClient" Version="2.8.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.1.1" />
   </ItemGroup>
 
 </Project>
